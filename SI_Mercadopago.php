@@ -65,7 +65,8 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 		$option = array(
 			'icon' => 'https://s3.amazonaws.com/checkout_images/466be15d-fdb2-4d70-9717-b2b267f296cc.png',
 			'label' => self::__( 'Mercadopago' ),
-			'cc' => array()
+			'cc' => array(),
+			'purchase_button_callback' => array( __CLASS__, 'payment_button' )
 			);
 		return apply_filters( 'si_mercadopago_checkout_options', $option );
 	}
@@ -134,6 +135,31 @@ class SI_Mercadopago extends SI_Offsite_Processors {
 				)
 			);
 		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
+	}
+
+	public static function payment_button( $invoice_id = 0 ) {
+		if ( ! $invoice_id ) {
+			$invoice_id = get_the_id();
+		}
+		$link = self::get_mp_link( $invoice_id );
+		?>
+		<a href="<?php echo $link ?>" name="MP-payButton" class="payment_option" id="btnPagar">
+			<img src="http://imgmp.mlstatic.com/org-img/banners/ar/medios/468X60.jpg" alt="MercadoPago" title="MercadoPago" width="330" />
+		</a>
+		<script type="text/javascript" src="https://www.mercadopago.com/org-img/jsapi/mptools/buttons/render.js"></script>
+		<style type="text/css">
+			#btnPagar {
+				float: right;
+				margin-top: -11px;
+				margin-left: 10px;
+			}
+			ul #btnPagar {
+				float: none;
+				margin-top: 0px;
+				margin-left: 0px;
+			}
+		</style>
+		<?php
 	}
 
 	public static function get_mp_link( $invoice_id = 0  ) {
