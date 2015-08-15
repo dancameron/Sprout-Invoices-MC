@@ -1,2 +1,0 @@
-# Sprout-Invoices-MC
-
