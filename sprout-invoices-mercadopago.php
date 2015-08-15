@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Sprout Invoices Add-on - Mercadopago
-Plugin URI: https://sproutapps.co/marketplace/mercadopago/
+Plugin URI: https://sproutapps.co/marketplace/mercadopago-invoice-payments/
 Description: Accept Mercadopago Payments with Sprout Invoices.
 Author: Sprout Apps
 Version: 1
@@ -12,7 +12,7 @@ Author URI: https://sproutapps.co
  * Plugin File
  */
 define( 'SA_ADDON_MERCADOPAGO_VERSION', '1' );
-define( 'SA_ADDON_MERCADOPAGO_DOWNLOAD_ID', 0 );
+define( 'SA_ADDON_MERCADOPAGO_DOWNLOAD_ID', 47863 );
 define( 'SA_ADDON_MERCADOPAGO_FILE', __FILE__ );
 define( 'SA_ADDON_MERCADOPAGO_NAME', 'Sprout Invoices Paypal EC Payments' );
 define( 'SA_ADDON_MERCADOPAGO_URL', plugins_url( '', __FILE__ ) );
